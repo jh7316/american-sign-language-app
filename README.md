@@ -36,5 +36,8 @@ If you want to learn more about Tensorflow JS and custom gesture handpose, pleas
 
 
 
+# Deploy to your site
+[![Deploy to DO](https://www.deploytodo.com/do-btn-blue-ghost.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/syauqy/handsign-tensorflow-gatsby/tree/master&refcode=a9cb43de523c)
+
 <!-- AUTO-GENERATED-CONTENT:END -->
 >>>>>>> f807a8b (Initial commit from gatsby: (https://github.com/gatsbyjs/gatsby-starter-default.git))
