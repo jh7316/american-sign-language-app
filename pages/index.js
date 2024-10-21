@@ -5,6 +5,7 @@ import Webcam from "react-webcam"
 import { drawHand } from "../components/handposeutil"
 import * as fp from "fingerpose"
 import Handsigns from "../components/handsigns"
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 import {
   Text,
@@ -68,8 +69,7 @@ export default function Home() {
   }
 
   function generateSigns() {
-    const password = shuffle(Signpass)
-    return password
+    return Signpass;
   }
 
   async function detect(net) {
@@ -157,17 +157,14 @@ export default function Home() {
           } else if (gamestate === "played") {
             document.querySelector("#app-title").innerText = ""
 
-            //looping the sign list
+            // Looping the sign list
             if (currentSign === signList.length) {
               _signList()
               currentSign = 0
               return
             }
 
-            // console.log(signList[currentSign].src.src)
-
-            //game play state
-
+            // Game play state
             if (
               typeof signList[currentSign].src.src === "string" ||
               signList[currentSign].src.src instanceof String
@@ -175,11 +172,21 @@ export default function Home() {
               document
                 .getElementById("emojimage")
                 .setAttribute("src", signList[currentSign].src.src)
+
               if (
                 signList[currentSign].alt ===
                 estimatedGestures.gestures[maxConfidence].name
               ) {
                 currentSign++
+
+                // Display the green circle
+                const correctSignCircle = document.getElementById("correct-sign-circle")
+                correctSignCircle.style.opacity = 1
+
+                // Hide the green circle after 1 second
+                setTimeout(() => {
+                  correctSignCircle.style.opacity = 0
+                }, 1000)
               }
               setSign(estimatedGestures.gestures[maxConfidence].name)
             }
@@ -207,6 +214,14 @@ export default function Home() {
       setCamState("off")
     } else {
       setCamState("on")
+    }
+  }
+
+  function changeAlphabet(direction) {
+    if (direction === 'prev' && currentSign > 0) {
+      currentSign--;
+    } else if (direction === 'next' && currentSign < signList.length - 1) {
+      currentSign++;
     }
   }
 
@@ -289,6 +304,20 @@ export default function Home() {
 
           <Image h="150px" objectFit="cover" id="emojimage" />
           {/* <pre className="pose-data" color="white" style={{position: 'fixed', top: '150px', left: '10px'}} >Pose data</pre> */}
+          
+          <div id="correct-sign-circle" style={{
+            width: '550px', // Set width
+            height: '550px', // Set height
+            borderRadius: '50%', // Make it a circle
+            border: '42px solid #98FB98', // Green border for hollow effect, color can be adjusted to your desired green
+            opacity: 0, // Initially hidden
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 10,
+          }}></div>
+          
         </Container>
 
         <Stack id="start-button" spacing={4} direction="row" align="center">
@@ -307,6 +336,43 @@ export default function Home() {
           </Button>
           <About />
         </Stack>
+
+        <Stack
+          id="progress-bar"
+          direction="row"
+          spacing={4}
+          justify="center"
+          align="center"
+          style={{
+            backgroundColor: '#4a4a4a',
+            width: '100%',
+            padding: '10px',
+            position: 'absolute',
+            bottom: 0,
+          }}
+        >
+            <Button
+              leftIcon={<FiArrowLeft size={20} />}
+              onClick={() => changeAlphabet('prev')}
+              colorScheme="gray"
+              variant="outline"
+              isDisabled={currentSign === 0}
+            >
+              Previous
+            </Button>
+            
+            <Text color="white">{`${currentSign + 1}/26`}</Text>
+
+            <Button
+              rightIcon={<FiArrowRight size={20} />}
+              onClick={() => changeAlphabet('next')}
+              colorScheme="orange"
+              variant="solid"
+              isDisabled={currentSign === signList.length - 1}
+            >
+              Next
+            </Button>
+          </Stack>
       </Box>
     </ChakraProvider>
   )
