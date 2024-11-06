@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss'
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/logo_footer.svg'
 import { x,ig,fb } from '../../assets/social'
 
 const Footer = ()=>{
@@ -25,10 +25,10 @@ const Footer = ()=>{
             </ul>
             <ul>
                 <h3>FOLLOW US</h3>
-                <li>
+                <li className={styles.social}>
                     <img src={x} alt='x' />
                     <img src={ig} alt='ig' />
-                    <img src={fb} alt='fb' />
+                    <img className={styles.fb} src={fb} alt='fb' />
                 </li>
             </ul>
         </div>
