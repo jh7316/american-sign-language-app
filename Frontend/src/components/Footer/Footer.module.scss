@@ -11,6 +11,15 @@
 
             li{
                 margin-bottom: 0.2rem;
+
+                &.social{
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .fb{
+                    margin-bottom: 0.2rem;
+                }
             }
         }
 
