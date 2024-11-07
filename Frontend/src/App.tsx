@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter, redirect, Outlet} from 'react-router-dom'
 import HomePage from './pages/HomePage/HomePage';
 import Main from './pages/Main/Main';
+import CoursePage from './pages/CoursePage/CoursePage';
+import { COURSE_CONTENTS } from './constants/constants';
 import './App.css'
 
 const router = createBrowserRouter([
@@ -24,15 +26,15 @@ const router = createBrowserRouter([
         children: [
           { 
             path: 'beginner',
-            element: <HomePage />,
+            element: <CoursePage key='beginner' {...COURSE_CONTENTS[0]} />,
           },
           { 
             path: 'intermediate',
-            element: <HomePage />,
+            element: <CoursePage key='intermediate' {...COURSE_CONTENTS[1]}/>,
           },
           { 
             path: 'advanced',
-            element: <HomePage />,
+            element: <CoursePage key='advanced' {...COURSE_CONTENTS[2]}/>,
           },
         ],
       },

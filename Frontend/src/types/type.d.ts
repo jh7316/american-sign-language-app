@@ -17,5 +17,15 @@ interface Benefit {
     description: string
 }
 
+interface CourseItem {
+    name: string
+    link?: string
+}
+
+interface CourseList {
+    title: string
+    items: CourseItem[]
+}
+
 declare const COURSES: Course[]
 declare const BENEFITS: Benefit[]

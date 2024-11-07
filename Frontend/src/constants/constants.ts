@@ -129,7 +129,180 @@ const BENEFITS: Benefit[] = [
     },
 ]
 
+const COURSE_CONTENTS = [
+    {
+        name: "Beginner",
+        color: "78, 208, 114",
+        courses: [
+            {
+                title: 'ASL Basics',
+                items: [
+                    {
+                        name: 'Introduction to ASL and Deaf Culture',
+                    },
+                    {
+                        name: 'The ASL Alphabet',
+                        link: '/chapter/alphabet',
+                    },
+                    {
+                        name: 'Basic Greetings',
+                    },
+                    {
+                        name: 'Numbers 1-10',
+                    },
+                ]
+            },
+            {
+                title: 'Basic Vocabulary',
+                items: [
+                    {
+                        name: 'Family Signs',
+                    },
+                    {
+                        name: 'Common Everyday Words',
+                    },
+                    {
+                        name: 'Pronouns and Basic Grammar',
+                    },
+                ]
+            },
+            {
+                title: 'Basic Phrases and Expressions',
+                items: [
+                    {
+                        name: 'Introducing Yourself',
+                    },
+                    {
+                        name: 'Asking Simple Questions',
+                    },
+                    {
+                        name: 'Basic Yes/No Questions',
+                    },
+                    {
+                        name: 'Expressing Needs and Preferences',
+                    },
+                ]
+            },
+        
+        ]
+
+    },
+    {
+        name: "Intermediate",
+        color: "255, 184, 29",
+        courses: [
+            {
+                title: 'Building Conversations',
+                items: [
+                    {
+                        name: 'Introduction to ASL and Deaf Culture',
+                    },
+                    {
+                        name: 'People, Places, and Things',
+                    },
+                    {
+                        name: 'Verbs and Action Words',
+                    },
+                    {
+                        name: 'Sentence Structure and Grammar',
+                    },
+                ]
+            },
+            {
+                title: 'Everyday Conversations',
+                items: [
+                    {
+                        name: 'Time and Dates',
+                    },
+                    {
+                        name: 'Asking for Directions',
+                    },
+                    {
+                        name: 'Talking About Weather',
+                    },
+                    {
+                        name: 'Making Plans and Arrangements',
+                    },
+                ]
+            },
+            {
+                title: 'Basic Phrases and Expressions',
+                items: [
+                    {
+                        name: 'Feelings',
+                    },
+                    {
+                        name: 'Expressing Preferences',
+                    },
+                    {
+                        name: 'Giving and Receiving Compliments',
+                    },
+                    {
+                        name: 'Polite Conversation and Social Etiquette in ASL',
+                    },
+                ]
+            },
+        
+        ]
+
+    },
+    {
+        name: "Advanced",
+        color: "255, 106, 80",
+        courses: [
+            {
+                title: 'Advanced Vocabulary and concepts ',
+                items: [
+                    {
+                        name: 'Health, Technology, Education',
+                    },
+                    {
+                        name: 'Numbers and Money',
+                    },
+                    {
+                        name: 'Describing Situations and Events',
+                    },
+                ]
+            },
+            {
+                title: 'Storytelling and Narratives',
+                items: [
+                    {
+                        name: 'Telling Short Stories',
+                    },
+                    {
+                        name: 'Using Facial Expressions and Body Language',
+                    },
+                    {
+                        name: 'Poetry and Visual Vernacular',
+                    },
+                    {
+                        name: 'Conversational Strategies',
+                    },
+                ]
+            },
+            {
+                title: 'Deaf Culture and History',
+                items: [
+                    {
+                        name: 'Understanding Deaf Culture and Community',
+                    },
+                    {
+                        name: 'Key Moments in Deaf History',
+                    },
+                    {
+                        name: 'Etiquette and Social Norms in the Deaf Community',
+                    },
+                ]
+            },
+        
+        ]
+
+    },
+]
+
 export {
     COURSES,
     BENEFITS,
+    COURSE_CONTENTS
 }
