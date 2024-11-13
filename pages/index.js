@@ -202,9 +202,12 @@ export default function Home() {
   //     console.log(sign, Signimage[sign])
   //   }
 
+  useEffect(()=>{
+    document.querySelector("#app-title").innerText = "Make a 👍 gesture with your hand to start"
+  },[])
+
   useEffect(() => {
     const interval = runHandpose()
-    document.querySelector("#app-title").innerText = "Make a 👍 gesture with your hand to start"
 
     return () => {
       if (interval) {
