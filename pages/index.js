@@ -222,8 +222,118 @@ export default function Home() {
   return (
     <ChakraProvider>
       <Metatags />
-      <Box bgColor="#5784BA">
-        <Container centerContent maxW="xl" height="100vh" pt="0" pb="0">
+      <Box id="main" bgColor="#5784BA">
+        <Box display="flex" height="100vh" id="left-bar">
+          {/* Left Sidebar with Instructions */}
+          <Box
+            bgColor="#333"
+            color="white"
+            overflowY="auto"
+            padding={4}
+          >
+            {/* Dropdown Menu */}
+            <Select
+              placeholder="Select Sign"
+              value={signList[currentSign]?.alt}
+              onChange={(event) => {
+                const selectedSign = event.target.value;
+                const index = signList.findIndex((sign) => sign.alt === selectedSign);
+                if (index !== -1) {
+                  setCurrentSign(index);
+                }
+              }}
+              mb={4}
+              bgColor="white"
+              color="black"
+            >
+              {signList.map((sign, index) => (
+                <option key={index} value={sign.alt}>
+                  {sign.alt}
+                </option>
+              ))}
+            </Select>
+            
+            {/* GIF Image */}
+            <img
+              src={'../components/handimage/alphabets_gif/a.gif'} // Using provided GIF file path
+              alt='Alphabet GIF'
+              borderRadius="md"
+              objectFit="cover"
+              mb={4}
+            />
+
+            {/* Short Description */}
+            <Text mb={2} fontSize="lg">
+              {signList[currentSign]?.description ||
+                "Make a fist with your thumb against the side of your index finger."}
+            </Text>
+
+            {/* Instructional Image */}
+            <Box bgColor="white" borderRadius="md" p={4} color="black" mt={4}>
+              <Text fontWeight="bold" mb={2}>
+                The shape resembles the letter {signList[currentSign]?.alt}
+              </Text>
+              <Image
+                src={"../components/Frame 10.png"} // Using provided second image path
+                
+                borderRadius="md"
+              />
+            </Box>
+          </Box>
+        </Box>
+
+        {/* Main Content Area */}
+        <Box id="nav-bar">
+          {/* Navigation Buttons */}
+          <Stack id="progress" direction="row" align="center">
+            <Button
+              className="progress"
+              leftIcon={<FiArrowLeft size={20} />}
+              onClick={() => setCurrentSign((prev) => Math.max(prev - 1, 0))}
+              colorScheme="gray"
+              variant="outline"
+              isDisabled={currentSign === 0}
+            >
+              Previous
+            </Button>
+
+            <Text color="white" className="progress">{`${currentSign + 1}/26`}</Text>
+
+            <Button
+              className="progress"
+              rightIcon={<FiArrowRight size={20} />}
+              onClick={() =>
+                setCurrentSign((prev) =>
+                  prev < signList.length - 1 ? prev + 1 : prev
+                )
+              }
+              colorScheme="orange"
+              variant="solid"
+              isDisabled={currentSign === signList.length - 1}
+            >
+              Next
+            </Button>
+          </Stack>
+
+          <Stack id="start-button" direction="row" align="center">
+            <Button
+              leftIcon={
+                camState === "on" ? (
+                  <RiCameraFill size={20} />
+                ) : (
+                  <RiCameraOffFill size={20} />
+                )
+              }
+              onClick={turnOffCamera}
+              colorScheme="orange"
+            >
+              Camera
+            </Button>
+            <About />
+          </Stack>
+        </Box>
+        
+        <Container id="main-container" centerContent>
           <VStack spacing={4} align="center">
             <Box h="20px"></Box>
             <Heading
@@ -316,131 +426,7 @@ export default function Home() {
           ></div>
         </Container>
 
-        
 
-        <Stack id="start-button" spacing={4} direction="row" align="center">
-          <Button
-            leftIcon={
-              camState === "on" ? (
-                <RiCameraFill size={20} />
-              ) : (
-                <RiCameraOffFill size={20} />
-              )
-            }
-            onClick={turnOffCamera}
-            colorScheme="orange"
-          >
-            Camera
-          </Button>
-          <About />
-        </Stack>
-
-        
-        
-        <Box display="flex" height="100vh">
-          {/* Left Sidebar with Instructions */}
-          <Box
-            width="25%"
-            bgColor="#333"
-            color="white"
-            padding="20px"
-            overflowY="auto"
-          >
-            {/* Dropdown Menu */}
-            <Select
-              placeholder="Select Sign"
-              value={signList[currentSign]?.alt}
-              onChange={(event) => {
-                const selectedSign = event.target.value;
-                const index = signList.findIndex((sign) => sign.alt === selectedSign);
-                if (index !== -1) {
-                  setCurrentSign(index);
-                }
-              }}
-              mb={4}
-              bgColor="white"
-              color="black"
-            >
-              {signList.map((sign, index) => (
-                <option key={index} value={sign.alt}>
-                  {sign.alt}
-                </option>
-              ))}
-            </Select>
-            
-            {/* GIF Image */}
-            <img
-              src={'../components/handimage/alphabets_gif/a.gif'} // Using provided GIF file path
-              alt='Alphabet GIF'
-              borderRadius="md"
-              objectFit="cover"
-              mb={4}
-            />
-
-            {/* Short Description */}
-            <Text mb={2} fontSize="lg">
-              {signList[currentSign]?.description ||
-                "Make a fist with your thumb against the side of your index finger."}
-            </Text>
-
-            {/* Instructional Image */}
-            <Box bgColor="white" borderRadius="md" p={4} color="black" mt={4}>
-              <Text fontWeight="bold" mb={2}>
-                The shape resembles the letter {signList[currentSign]?.alt}
-              </Text>
-              <Image
-                src={"../components/Frame 10.png"} // Using provided second image path
-                
-                borderRadius="md"
-              />
-            </Box>
-          </Box>
-
-          {/* Main Content Area */}
-          <Box width="75%" p={0} position="relative">
-            {/* Navigation Buttons */}
-            <Stack
-              id="progress-bar"
-              direction="row"
-              spacing={4}
-              justify="center"
-              align="center"
-              style={{
-                backgroundColor: "#4a4a4a",
-                width: "100%",
-                padding: "10px",
-                position: "absolute",
-                bottom: 0,
-              }}
-            >
-              <Button
-                leftIcon={<FiArrowLeft size={20} />}
-                onClick={() => setCurrentSign((prev) => Math.max(prev - 1, 0))}
-                colorScheme="gray"
-                variant="outline"
-                isDisabled={currentSign === 0}
-              >
-                Previous
-              </Button>
-
-              <Text color="white">{`${currentSign + 1}/26`}</Text>
-
-              <Button
-                rightIcon={<FiArrowRight size={20} />}
-                onClick={() =>
-                  setCurrentSign((prev) =>
-                    prev < signList.length - 1 ? prev + 1 : prev
-                  )
-                }
-                colorScheme="orange"
-                variant="solid"
-                isDisabled={currentSign === signList.length - 1}
-              >
-                Next
-              </Button>
-            </Stack>
-          </Box>
-        </Box>
 
       </Box>
     </ChakraProvider>
