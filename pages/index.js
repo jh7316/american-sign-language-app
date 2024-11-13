@@ -39,10 +39,9 @@ export default function Home() {
 
   const [sign, setSign] = useState(null)
   const [signList, setSignList] = useState([])
-
-  let currentSign = 0
-
-  let gamestate = "started"
+  const [currentSign, setCurrentSign] = useState(0)
+  const [gamestate, setGamestate] = useState("started")
+  console.log(gamestate)
 
   // let net;
 
@@ -123,11 +122,6 @@ export default function Home() {
         const estimatedGestures = await GE.estimate(hand[0].landmarks, 6.5)
         // document.querySelector('.pose-data').innerHTML =JSON.stringify(estimatedGestures.poseData, null, 2);
 
-        if (gamestate === "started") {
-          document.querySelector("#app-title").innerText =
-            "Make a 👍 gesture with your hand to start"
-        }
-
         if (
           estimatedGestures.gestures !== undefined &&
           estimatedGestures.gestures.length > 0
@@ -143,7 +137,8 @@ export default function Home() {
             gamestate !== "played"
           ) {
             _signList()
-            gamestate = "played"
+            setGamestate("played")
+            document.querySelector("#app-title").innerText = ""
             document.getElementById("emojimage").classList.add("play")
             document.querySelector(".tutor-text").innerText =
               "make a hand gesture based on letter shown below"
@@ -153,7 +148,7 @@ export default function Home() {
             //looping the sign list
             if (currentSign === signList.length) {
               _signList()
-              currentSign = 0
+              setCurrentSign(0)
               return
             }
 
@@ -172,7 +167,7 @@ export default function Home() {
                 signList[currentSign].alt ===
                 estimatedGestures.gestures[maxConfidence].name
               ) {
-                currentSign++
+                setCurrentSign(prev=>prev+1)
                 // Display the green circle
                 const correctSignCircle = document.getElementById("correct-sign-circle")
                 correctSignCircle.style.opacity = 1
@@ -201,6 +196,7 @@ export default function Home() {
 
   useEffect(() => {
     runHandpose()
+    document.querySelector("#app-title").innerText = "Make a 👍 gesture with your hand to start"
   }, [])
 
   function turnOffCamera() {
@@ -252,7 +248,7 @@ export default function Home() {
             id="left-bar-content"
           >
             <Image
-                src={"/Frame_10.png"} // Using provided second image path
+                src={`/alphabets_gif/${signList[0] ? signList[currentSign].alt : 'a'}.gif`} // Using provided second image path
                 alt='Alphabet GIF'
                 borderRadius="md"
                 objectFit="cover"
@@ -272,7 +268,7 @@ export default function Home() {
                 The shape resembles the letter {signList[currentSign]?.alt}
               </Text>
               <Image
-                src={"/Frame_10.png"} // Using provided second image path
+                src={`/alphabets_img/${signList[0] ? signList[currentSign].alt: 'a'}.png`} // Using provided second image path
                 borderRadius="md"
               />
             </Box>
