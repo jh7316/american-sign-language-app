@@ -38,8 +38,8 @@ export default function Home() {
   const [camState, setCamState] = useState("on")
 
   const [sign, setSign] = useState(null)
+  const [signList, setSignList] = useState([])
 
-  let signList = []
   let currentSign = 0
 
   let gamestate = "started"
@@ -58,7 +58,7 @@ export default function Home() {
   }
 
   function _signList() {
-    signList = generateSigns()
+    setSignList(generateSigns())
   }
 
   function generateSigns() {
@@ -223,42 +223,42 @@ export default function Home() {
     <ChakraProvider>
       <Metatags />
       <Box id="main" bgColor="#5784BA">
-        <Box display="flex" height="100vh" id="left-bar">
+        <Box display="flex" id="left-bar" bgColor="#D0D0D0">
           {/* Left Sidebar with Instructions */}
-          <Box
-            bgColor="#D0D0D0"
-            overflowY="auto"
-          >
-            {/* Dropdown Menu */}
-            <Select
-              placeholder="Select Sign"
-              value={signList[currentSign]?.alt}
-              onChange={(event) => {
-                const selectedSign = event.target.value;
-                const index = signList.findIndex((sign) => sign.alt === selectedSign);
-                if (index !== -1) {
-                  setCurrentSign(index);
-                }
-              }}
-              mb={4}
-              bgColor="white"
-              color="black"
-            >
-              {signList.map((sign, index) => (
-                <option key={index} value={sign.alt}>
-                  {sign.alt}
-                </option>
-              ))}
-            </Select>
+          {/* Dropdown Menu */}
+          <Select
+            id="main-select"
+            placeholder="Select Sign"
+            value={signList[currentSign]?.alt}
+            onChange={(event) => {
+              const selectedSign = event.target.value;
+              const index = signList.findIndex((sign) => sign.alt === selectedSign);
+              if (index !== -1) {
+                setCurrentSign(index);
+              }
+            }}
+            size="lg"
+            iconColor="white"
             
-            {/* GIF Image */}
-            <img
-              src={'../components/handimage/alphabets_gif/a.gif'} // Using provided GIF file path
-              alt='Alphabet GIF'
-              borderRadius="md"
-              objectFit="cover"
-              mb={4}
-            />
+          >
+            {signList.map((sign, index) => (
+              <option key={index} value={sign.alt}>
+                {sign.alt}
+              </option>
+            ))}
+          </Select>
+
+          <Box
+            id="left-bar-content"
+          >
+            <Image
+                src={"/Frame_10.png"} // Using provided second image path
+                alt='Alphabet GIF'
+                borderRadius="md"
+                objectFit="cover"
+                mb={5}
+              />
+          
 
             {/* Short Description */}
             <Text mb={2} fontSize="lg">
@@ -267,13 +267,12 @@ export default function Home() {
             </Text>
 
             {/* Instructional Image */}
-            <Box bgColor="white" borderRadius="md" p={4} color="black" mt={4}>
+            <Box bgColor="white" borderRadius="md" p={4} color="black" mt={20} mb={5}>
               <Text fontWeight="bold" mb={2}>
                 The shape resembles the letter {signList[currentSign]?.alt}
               </Text>
               <Image
                 src={"/Frame_10.png"} // Using provided second image path
-                
                 borderRadius="md"
               />
             </Box>

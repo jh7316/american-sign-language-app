@@ -94,14 +94,24 @@ video{
 }
 #main{
   display: grid;
-  grid-template-columns: 25% 75%;
-  grid-template-rows: 92% 8%; 
+  grid-template-columns: 25vw 75vw;
+  grid-template-rows: 92vh 8vh; 
+  overflow: hidden;
 }
 
 #left-bar {
   grid-column: 1;
   grid-row: 1;  
+  max-height: 100%;
   z-index:10000;
+  display: flex;
+  flex-direction: column;
+}
+
+#left-bar-content{
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 1rem 2rem;
 }
 
 #nav-bar {
@@ -121,6 +131,17 @@ video{
   left: 50%;
   transform: translateX(-50%);
 }
+
+#main-select {
+  color: white;
+  border-radius: 0;
+  border: 0rem solid #282828;
+  text-align: center;
+  font-weight: bold;
+  background-color: #282828;
+  height: 4rem;
+}
+
 
 #start-button {
   /* background-color: black;*/
