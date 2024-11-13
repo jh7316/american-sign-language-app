@@ -226,10 +226,8 @@ export default function Home() {
         <Box display="flex" height="100vh" id="left-bar">
           {/* Left Sidebar with Instructions */}
           <Box
-            bgColor="#333"
-            color="white"
+            bgColor="#D0D0D0"
             overflowY="auto"
-            padding={4}
           >
             {/* Dropdown Menu */}
             <Select
@@ -274,7 +272,7 @@ export default function Home() {
                 The shape resembles the letter {signList[currentSign]?.alt}
               </Text>
               <Image
-                src={"../components/Frame 10.png"} // Using provided second image path
+                src={"/Frame_10.png"} // Using provided second image path
                 
                 borderRadius="md"
               />
