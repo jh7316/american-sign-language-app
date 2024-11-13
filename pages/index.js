@@ -31,6 +31,7 @@ import Metatags from "../components/metatags"
 
 import { RiCameraFill, RiCameraOffFill } from "react-icons/ri"
 
+
 export default function Home() {
   const webcamRef = useRef(null)
   const canvasRef = useRef(null)
@@ -40,19 +41,22 @@ export default function Home() {
   const [sign, setSign] = useState(null)
   const [signList, setSignList] = useState([])
   const [currentSign, setCurrentSign] = useState(0)
+  const currentSignRef = useRef(currentSign);
   const [gamestate, setGamestate] = useState("started")
-  console.log(gamestate)
 
   // let net;
 
   async function runHandpose() {
+    async function doDetect(){
+      await detect(net,currentSign)
+    }
     const net = await handpose.load()
     _signList()
 
     // window.requestAnimationFrame(loop);
 
-    setInterval(() => {
-      detect(net)
+    return setInterval(() => {
+      doDetect()
     }, 150)
   }
 
@@ -64,7 +68,7 @@ export default function Home() {
     return Signpass.sort((a, b) => a.alt.localeCompare(b.alt)) // Sort the signs in alphabetical order
   }
 
-  async function detect(net) {
+  async function detect(net,currentSign) {
     // Check data is available
     if (
       typeof webcamRef.current !== "undefined" &&
@@ -87,7 +91,9 @@ export default function Home() {
       // Make Detections
       const hand = await net.estimateHands(video)
 
+
       if (hand.length > 0) {
+
         //loading the fingerpose model
         const GE = new fp.GestureEstimator([
           fp.Gestures.ThumbsUpGesture,
@@ -126,6 +132,7 @@ export default function Home() {
           estimatedGestures.gestures !== undefined &&
           estimatedGestures.gestures.length > 0
         ) {
+
           const confidence = estimatedGestures.gestures.map(p => p.confidence)
           const maxConfidence = confidence.indexOf(
             Math.max.apply(undefined, confidence)
@@ -136,38 +143,38 @@ export default function Home() {
             estimatedGestures.gestures[maxConfidence].name === "thumbs_up" &&
             gamestate !== "played"
           ) {
-            _signList()
             setGamestate("played")
+            _signList()
             document.querySelector("#app-title").innerText = ""
-            document.getElementById("emojimage").classList.add("play")
-            document.querySelector(".tutor-text").innerText =
-              "make a hand gesture based on letter shown below"
+            // document.getElementById("emojimage").classList.add("play")
+            document.querySelector(".tutor-text").innerText = "make a hand gesture based on letter shown below"
           } else if (gamestate === "played") {
+
             document.querySelector("#app-title").innerText = ""
 
-            //looping the sign list
-            if (currentSign === signList.length) {
-              _signList()
-              setCurrentSign(0)
-              return
-            }
+            // //looping the sign list
+            // if (currentSign === signList.length) {
+            //   _signList()
+            //   setCurrentSign(0)
+            //   return
+            // }
 
             // console.log(signList[currentSign].src.src)
 
             //game play state
 
             if (
-              typeof signList[currentSign].src.src === "string" ||
-              signList[currentSign].src.src instanceof String
+              typeof signList[currentSignRef.current].src.src === "string" ||
+              signList[currentSignRef.current].src.src instanceof String
             ) {
               document
                 .getElementById("emojimage")
-                .setAttribute("src", signList[currentSign].src.src)
+                .setAttribute("src", signList[currentSignRef.current].src.src)
               if (
-                signList[currentSign].alt ===
+                signList[currentSignRef.current].alt ===
                 estimatedGestures.gestures[maxConfidence].name
               ) {
-                setCurrentSign(prev=>prev+1)
+                setCurrentSign((currentSignRef.current+1)%26)
                 // Display the green circle
                 const correctSignCircle = document.getElementById("correct-sign-circle")
                 correctSignCircle.style.opacity = 1
@@ -176,6 +183,7 @@ export default function Home() {
                 setTimeout(() => {
                   correctSignCircle.style.opacity = 0
                 }, 1000)
+                return
               }
               setSign(estimatedGestures.gestures[maxConfidence].name)
             }
@@ -195,9 +203,31 @@ export default function Home() {
   //   }
 
   useEffect(() => {
-    runHandpose()
+    const interval = runHandpose()
     document.querySelector("#app-title").innerText = "Make a 👍 gesture with your hand to start"
-  }, [])
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    }
+  }, [gamestate])
+
+  useEffect(()=>{
+    currentSignRef.current = currentSign
+  },[currentSign])
+
+  // useEffect(()=>{
+  //   async function doDetect(){
+  //     await detect(net,currentSign)
+  //   }
+    
+  //   if(net){
+  //     setInterval(() => {
+  //       doDetect()
+  //     }, 150)
+  //   }
+  // },[gamestate,currentSign])
 
   function turnOffCamera() {
     if (camState === "on") {
@@ -309,7 +339,7 @@ export default function Home() {
           </Stack>
 
           <Stack id="start-button" direction="row" align="center">
-            <Button
+            {/* <Button
               leftIcon={
                 camState === "on" ? (
                   <RiCameraFill size={20} />
@@ -321,7 +351,7 @@ export default function Home() {
               colorScheme="orange"
             >
               Camera
-            </Button>
+            </Button> */}
             <About />
           </Stack>
         </Box>
@@ -399,7 +429,7 @@ export default function Home() {
             }}
           ></Box>
 
-          <Image h="150px" objectFit="cover" id="emojimage" />
+          {gamestate==="played" && <Image className="play" h="150px" objectFit="cover" id="emojimage" src={signList[currentSign].src.src}/>}
           {/* <pre className="pose-data" color="white" style={{position: 'fixed', top: '150px', left: '10px'}} >Pose data</pre> */}
 
           <div
