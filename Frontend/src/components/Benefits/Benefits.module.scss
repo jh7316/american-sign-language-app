@@ -1,0 +1,28 @@
+.main{
+    background-color: #5AB6E2;
+    padding:1% 3%;
+
+    h2{
+        font-family: 'Sigmar';
+        font-size: 1.2rem;
+    }
+
+    ul{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+        grid-template-rows: 1fr;
+        gap: 10px;  
+        list-style-type: none; /* Removes the bullet points */
+        padding-left: 0;       /* Removes the default padding */
+        margin: 0;        
+        
+        li{
+            width: 80%;
+            margin: auto;
+            img{
+                width: 15vw;
+            }
+        }
+    }
+ 
+}

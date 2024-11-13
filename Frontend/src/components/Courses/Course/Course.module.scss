@@ -1,0 +1,34 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 26%;
+    
+    img{
+        height: 4rem;
+    }
+
+    .stages{
+        list-style-type: none;
+        padding: 0;
+
+        .stage{
+            padding: 0.5rem;
+            min-height: 9rem;
+            h3{
+                margin: 0;
+            }
+
+            .contentList{
+                text-align: left;
+
+            }
+        }
+    
+
+        .vrline{
+            height: 1.5rem;
+            width: 50%;
+        }
+    }
+}

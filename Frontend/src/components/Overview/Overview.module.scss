@@ -1,0 +1,84 @@
+.main{
+    text-align: left;
+    flex-grow: 1;
+    min-height: 90vh;
+    height: auto;
+    display: grid;
+    grid-template-columns: 35% 35%;
+    grid-template-rows: auto;
+    gap: 10px 6%;   
+    justify-content: center;  
+    margin: auto;
+
+
+
+    background-image: url('../../assets/home-background-1.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+    .preview{
+        display: flex;
+        img{
+            max-width: 100%;   
+            object-fit: cover;
+            margin: auto;
+        }
+    }
+
+    .explanation{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        max-width: 25rem;
+        align-items: flex-start; 
+
+        h2{
+            max-width: 15rem;
+        }
+
+        button{
+            background-color: #F34E4E;
+            color: white;
+            font-weight: bolder;
+            margin: auto;
+            font-size: 18px;
+        }
+    }
+
+    .mission{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+
+        h3{
+            font-family: 'Sigmar';
+            font-size: 1.2rem;
+            color: #8C46B9;
+        }
+    }
+
+    .quote{
+        display: flex;
+        flex-direction: column;
+        font-style: italic;
+        text-align: center;
+        gap: 1rem;
+        margin: auto;
+
+        img{
+            height: 12rem;
+        }
+
+        p{
+            max-width: 18rem;
+            margin: 0rem auto;
+        }
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+        grid-template-rows: repeat(4, auto); /* 4 rows */
+    }
+}

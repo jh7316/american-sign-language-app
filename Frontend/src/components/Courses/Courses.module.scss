@@ -1,0 +1,23 @@
+.main{
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        font-family: 'Sigmar';
+        font-size: 1.5rem;
+    }
+
+    .courses{
+        display: flex;
+    }
+
+    button{
+        align-self: flex-start;
+        margin: 2rem auto;
+        border-radius: 0.2rem;
+        background-color: #F34E4E;
+        color: white;
+        font-weight: bold;
+        font-size: 17px;
+    }
+}
