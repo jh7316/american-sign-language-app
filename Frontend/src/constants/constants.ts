@@ -142,7 +142,7 @@ const COURSE_CONTENTS = [
                     },
                     {
                         name: 'The ASL Alphabet',
-                        link: '/chapter/alphabet',
+                        link: 'http://localhost:3000/',
                     },
                     {
                         name: 'Basic Greetings',

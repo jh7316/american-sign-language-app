@@ -10,7 +10,7 @@ const PlayButton: React.FC<propType>  = ({color, link})=>{
     const navigate = useNavigate()
 
     const handleClick = ()=>{
-        if(link) navigate(link)
+        if(link) window.open(link);//navigate(link)
     }
 
     return <svg className={styles.main} onClick={handleClick} width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg">
