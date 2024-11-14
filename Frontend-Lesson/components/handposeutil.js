@@ -32,7 +32,7 @@ export const drawHand = (prediction, ctx) => {
                             landmarks[secondJointIndex][0],
                             landmarks[secondJointIndex][1]
                         );
-                    ctx.strokeStyle = "gold";
+                    ctx.strokeStyle = "#FFB81D";
                     ctx.lineWidth = 2;
                     ctx.stroke();
                 }
@@ -51,7 +51,7 @@ export const drawHand = (prediction, ctx) => {
                 ctx.arc(x,y, 5, 0, 3*Math.PI);
 
                 //set line color
-                ctx.fillStyle = "navy";
+                ctx.fillStyle = "#5AB6E2";
                 ctx.fill();
             }
         })

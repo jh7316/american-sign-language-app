@@ -147,7 +147,7 @@ export default function Home() {
             _signList()
             document.querySelector("#app-title").innerText = ""
             // document.getElementById("emojimage").classList.add("play")
-            document.querySelector(".tutor-text").innerText = "make a hand gesture based on letter shown below"
+            // document.querySelector(".tutor-text").innerText = "make a hand gesture based on letter shown below"
           } else if (gamestate === "played") {
 
             document.querySelector("#app-title").innerText = ""
@@ -167,9 +167,9 @@ export default function Home() {
               typeof signList[currentSignRef.current].src.src === "string" ||
               signList[currentSignRef.current].src.src instanceof String
             ) {
-              document
-                .getElementById("emojimage")
-                .setAttribute("src", signList[currentSignRef.current].src.src)
+              // document
+              //   .getElementById("emojimage")
+              //   .setAttribute("src", signList[currentSignRef.current].src.src)
               if (
                 signList[currentSignRef.current].alt ===
                 estimatedGestures.gestures[maxConfidence].name
@@ -251,7 +251,7 @@ export default function Home() {
   return (
     <ChakraProvider>
       <Metatags />
-      <Box id="main" bgColor="#5784BA">
+      <Box id="main" bgColor="#5AB6E2">
         <Box display="flex" id="left-bar" bgColor="#D0D0D0">
           {/* Left Sidebar with Instructions */}
           {/* Dropdown Menu */}
@@ -291,7 +291,7 @@ export default function Home() {
 
             {/* Short Description */}
             <Text mb={2} fontSize="lg">
-              {signList[currentSign]?.description ||
+              {signList[currentSign]?.desc ||
                 "Make a fist with your thumb against the side of your index finger."}
             </Text>
 
@@ -341,8 +341,8 @@ export default function Home() {
             </Button>
           </Stack>
 
-          <Stack id="start-button" direction="row" align="center">
-            {/* <Button
+          {/* <Stack id="start-button" direction="row" align="center">
+            <Button
               leftIcon={
                 camState === "on" ? (
                   <RiCameraFill size={20} />
@@ -354,9 +354,9 @@ export default function Home() {
               colorScheme="orange"
             >
               Camera
-            </Button> */}
+            </Button>
             <About />
-          </Stack>
+          </Stack> */}
         </Box>
         
         <Container id="main-container" centerContent>
@@ -379,7 +379,7 @@ export default function Home() {
             color="white"
             textAlign="center"
           >
-            🧙‍♀️ Loading the Magic 🧙‍♂️
+            {/* 🧙‍♀️ Loading the Magic 🧙‍♂️ */}
           </Heading>
 
           <Box id="webcam-container">
@@ -389,7 +389,7 @@ export default function Home() {
               <div id="webcam" background="black"></div>
             )}
 
-            {sign ? (
+            {/* {sign ? (
               <div
                 style={{
                   position: "absolute",
@@ -417,12 +417,12 @@ export default function Home() {
               </div>
             ) : (
               " "
-            )}
+            )} */}
           </Box>
 
           <canvas id="gesture-canvas" ref={canvasRef} style={{}} />
 
-          <Box
+          {/* <Box
             id="singmoji"
             style={{
               zIndex: 9,
@@ -430,9 +430,9 @@ export default function Home() {
               top: "50px",
               right: "30px",
             }}
-          ></Box>
-
-          {gamestate==="played" && <Image className="play" h="150px" objectFit="cover" id="emojimage" src={signList[currentSign].src.src}/>}
+          ></Box> */}
+          {/* {gamestate==="played" && <Image className="play" h="150px" objectFit="cover" id="emojimage" src={signList[currentSign].src.src}/>} */}
+          
           {/* <pre className="pose-data" color="white" style={{position: 'fixed', top: '150px', left: '10px'}} >Pose data</pre> */}
 
           <div

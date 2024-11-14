@@ -85,105 +85,131 @@ export const Signpass = [
   {
     src: A_hand,
     alt: "A",
+    desc: "Make a fist with your thumb against the side of your index finger.",
   },
   {
     src: B_hand,
     alt: "B",
+    desc: "Hold your hand open with fingers together, palm facing outward, and thumb folded across the palm.",
   },
   {
     src: C_hand,
     alt: "C",
+    desc: "Curl your fingers to form a 'C'. Your index through pinky fingers should be pressed against each other.",
   },
   {
     src: D_hand,
     alt: "D",
+    desc: "Point your index finger up, while curling your other fingers into a circle.",
   },
   {
     src: E_hand,
     alt: "E",
+    desc: "Curl your index through pinky fingers down and curl your thumb in towards your palm.",
   },
   {
     src: F_hand,
     alt: "F",
+    desc: "Touch your thumb and index finger together, forming a circle, with the other three fingers extended.",
   },
   {
     src: G_hand,
     alt: "G",
+    desc: "Curl your middle through pinky fingers in. Extend your thumb and index fingers in the same direction while keeping them slightly apart.",
   },
   {
     src: H_hand,
     alt: "H",
+    desc: "Extend your index and middle fingers straight, keeping them together, with your thumb tucked in and other fingers curled.",
   },
   {
     src: I_hand,
     alt: "I",
+    desc: "Extend your pinky finger while curling in the rest of your fingers.",
   },
   {
     src: J_hand,
     alt: "J",
+    desc: "Make the same sign as 'I', but move your pinky in a small 'J' shape.",
   },
   {
     src: K_hand,
     alt: "K",
+    desc: "Extend your index and middle fingers in a V-shape, with your thumb in between them.",
   },
   {
     src: L_hand,
     alt: "L",
+    desc: "Extend your thumb and index finger to form an 'L' shape, with the other fingers curled in.",
   },
   {
     src: M_hand,
     alt: "M",
+    desc: "Tuck your thumb under your palm, touching it to the base of your pinky finger, with the other three fingers closed over it.",
   },
   {
     src: N_hand,
     alt: "N",
+    desc: "Place your thumb under your index and middle fingers, pressing it against your palm.",
   },
   {
     src: O_hand,
     alt: "O",
+    desc: "Make an 'O' shape with all your fingers curved together.",
   },
   {
     src: P_hand,
     alt: "P",
+    desc: "Similar to 'K', but with your hand facing downwards.",
   },
   {
     src: Q_hand,
     alt: "Q",
+    desc: "Similar to 'G', but with your hand facing downwards.",
   },
   {
     src: R_hand,
     alt: "R",
+    desc: "With your index and middle fingers extended, cross your middle finger behind your index finger.",
   },
   {
     src: S_hand,
     alt: "S",
+    desc: "Make a fist with your thumb crossing over your fingers.",
   },
   {
     src: T_hand,
     alt: "T",
+    desc: "Tuck your thumb under your index finger, against your palm, with the other fingers closed over it.",
   },
   {
     src: U_hand,
     alt: "U",
+    desc: "Extend your index and middle fingers while keeping them together, and curl your other fingers.",
   },
   {
     src: V_hand,
     alt: "V",
+    desc: "Extend your index and middle fingers in a V-shape, with your other fingers curled in.",
   },
   {
     src: W_hand,
     alt: "W",
+    desc: "Extend your index, middle, and ring fingers, keeping them spread apart, while the other fingers are curled in.",
   },
   {
     src: X_hand,
     alt: "X",
+    desc: "Extend your index finger and hook it at the middle joint, curling in your other fingers.",
   },
   {
     src: Y_hand,
     alt: "Y",
+    desc: "Extend your thumb and pinky finger, while curling in the other fingers.",
   },
   {
     src: Z_hand,
     alt: "Z",
+    desc: "Make the sign for 'Z' by drawing a 'Z' in the air with your index finger.",
   },
 ]
