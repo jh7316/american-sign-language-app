@@ -1,13 +1,11 @@
 import styles from './Overview.module.scss'
 import quoteImg from '../../assets/quote.svg'
 import previewImg from '../../assets/overview-preview.svg'
-import { useNavigate } from 'react-router-dom'
 
 const Overview = ()=>{
-    const navigate = useNavigate()
 
     const handleClick = ()=>{
-        navigate('/courses/beginner')
+        window.location.href = '/courses/beginner'
     }
 
     return <div className={styles.main}>

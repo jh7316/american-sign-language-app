@@ -26,7 +26,8 @@ const FadeMenu: React.FC<propType> = ({name,items})=> {
   const handleMenuClick = (item: string) =>{
         handleClose()
         if(['Beginner','Intermediate','Advanced'].includes(item)){
-            navigate(`/courses/${item.toLowerCase()}`)
+          window.location.href = `/courses/${item.toLowerCase()}`
+            // navigate(`/courses/${item.toLowerCase()}`)
         }
   }
 
