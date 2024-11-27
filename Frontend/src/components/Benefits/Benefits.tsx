@@ -9,8 +9,10 @@ const Benefits = ()=>{
         <ul>
             {BENEFITS.map((el)=><li key={el.title}>
                 <img src={el.img} alt='image' />
-                <h3>{el.title}</h3>
-                <p>{el.description}</p>
+                <div>
+                    <h3>{el.title}</h3>
+                    <p>{el.description}</p>
+                </div>
             </li>)}
         </ul>
     </div>

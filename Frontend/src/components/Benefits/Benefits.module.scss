@@ -8,19 +8,28 @@
     }
 
     ul{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-        grid-template-rows: 1fr;
-        gap: 10px;  
+        display: flex;
+        gap: 3rem;  
         list-style-type: none; /* Removes the bullet points */
         padding-left: 0;       /* Removes the default padding */
         margin: 0;        
         
         li{
             width: 80%;
-            margin: auto;
+            margin-bottom:auto;
+
+            h3{
+            height: 2rem;
+            }
+
+            div{
+                display: flex;
+                flex-direction: column;
+            }
+
             img{
-                width: 15vw;
+                max-width: 20vw;
+                height: 15rem;
             }
         }
     }

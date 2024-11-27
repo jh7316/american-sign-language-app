@@ -133,6 +133,10 @@ const COURSE_CONTENTS = [
     {
         name: "Beginner",
         color: "78, 208, 114",
+        description: [
+            "Begin your ASL journey by mastering the essentials: the alphabet, greetings, and foundational hand shapes. Each lesson includes real-time feedback and video demos to help you practice and perfect each sign with confidence.",
+            "Take it step-by-step and enjoy the process—you're building skills for meaningful connections!",
+        ],
         courses: [
             {
                 title: 'ASL Basics',
@@ -190,6 +194,10 @@ const COURSE_CONTENTS = [
     {
         name: "Intermediate",
         color: "255, 184, 29",
+        description: [
+            "Take your ASL skills further with lessons on practical topics: occupations, hobbies, directions, and more. This module also covers sentence structure, grammar, and social etiquette, helping you communicate in real-world situations.",
+            "With each lesson, you'll build confidence in expressing feelings, preferences, and making plans—all through ASL. Ready to dive deeper? Let’s keep going!",
+        ],
         courses: [
             {
                 title: 'Building Conversations',
@@ -249,6 +257,7 @@ const COURSE_CONTENTS = [
     {
         name: "Advanced",
         color: "255, 106, 80",
+        description: ["In this module, you'll explore complex topics like health, technology, and storytelling, while deepening your understanding of Deaf culture and history. Practice conversational strategies, expressive body language, and visual vernacular to communicate with nuance and authenticity. Get ready to refine your skills and connect on a deeper level—let’s dive into advanced ASL!"],
         courses: [
             {
                 title: 'Advanced Vocabulary and concepts ',

@@ -296,15 +296,11 @@ export default function Home() {
             </Text>
 
             {/* Instructional Image */}
-            <Box bgColor="white" borderRadius="md" p={4} color="black" mt={20} mb={5}>
-              <Text fontWeight="bold" mb={2}>
-                The shape resembles the letter {signList[currentSign]?.alt}
-              </Text>
-              <Image
-                src={`/alphabets_img/${signList[0] ? signList[currentSign].alt: 'a'}.png`} // Using provided second image path
-                borderRadius="md"
-              />
-            </Box>
+            <Image
+              src={`/alphabets_img/${signList[0] ? signList[currentSign].alt: 'a'}.png`} // Using provided second image path
+              borderRadius="md"
+              mt={20} mb={5}
+            />
           </Box>
         </Box>
 
@@ -341,7 +337,7 @@ export default function Home() {
             </Button>
           </Stack>
 
-          {/* <Stack id="start-button" direction="row" align="center">
+          <Stack id="start-button" direction="row" align="center">
             <Button
               leftIcon={
                 camState === "on" ? (
@@ -356,7 +352,7 @@ export default function Home() {
               Camera
             </Button>
             <About />
-          </Stack> */}
+          </Stack>
         </Box>
         
         <Container id="main-container" centerContent>
