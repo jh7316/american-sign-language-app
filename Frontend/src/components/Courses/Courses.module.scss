@@ -1,6 +1,7 @@
 .main{
     display: flex;
     flex-direction: column;
+    padding: 0rem 6rem;
 
     h2{
         font-family: 'Sigmar';
@@ -9,6 +10,7 @@
 
     .courses{
         display: flex;
+        justify-content: space-between;
     }
 
     button{
