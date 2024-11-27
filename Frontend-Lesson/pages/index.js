@@ -343,7 +343,7 @@ export default function Home() {
           </Stack>
 
           <Stack id="start-button" direction="row" align="center">
-            {/* <Button
+            {/* <Button>
           <Stack id="start-button" direction="row" align="center">
             <Button
               leftIcon={

@@ -25,11 +25,14 @@ export default function About() {
         Need a break?
       </Button>
 
-      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+      <Modal onClose={onClose} isOpen={isOpen} isCentered id="modal">
         <ModalOverlay />
         <ModalContent
-          bg="purple.50"
-          borderRadius="lg"
+          backgroundColor="white"
+          bg="url('/modal_bg.svg')"
+          bgSize="cover"
+          bgRepeat="no-repeat"
+          borderRadius="22px"
           p={4}
           maxW="700px" // Set the maximum width of the modal
           w="110%" // Set the width to 90% of the viewport width
@@ -38,7 +41,6 @@ export default function About() {
           {/* Updated modal header */}
           <ModalHeader
             sx={{
-              fontFamily: "'Sigmar', cursive", // Applying Sigmar font
               fontSize: "24px",
               fontWeight: "400",
               lineHeight: "39.31px",
@@ -47,6 +49,8 @@ export default function About() {
               textDecorationSkipInk: "none",
               color: "var(--Blue, #5AB6E2)", // Updated text color to match requirement
             }}
+
+            id="modal-header"
           >
             Take a Quick Break!
           </ModalHeader>
