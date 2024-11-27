@@ -7,6 +7,7 @@ import * as fp from "fingerpose"
 import Handsigns from "../components/handsigns"
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
+
 import {
   Text,
   Heading,
@@ -342,6 +343,8 @@ export default function Home() {
           </Stack>
 
           <Stack id="start-button" direction="row" align="center">
+            {/* <Button
+          <Stack id="start-button" direction="row" align="center">
             <Button
               leftIcon={
                 camState === "on" ? (
@@ -354,7 +357,7 @@ export default function Home() {
               colorScheme="orange"
             >
               Camera
-            </Button>
+            </Button> */}
             <About />
           </Stack>
         </Box>
