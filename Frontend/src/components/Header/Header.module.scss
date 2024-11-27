@@ -4,6 +4,10 @@
     display: flex;
     padding: 1.5rem 3vw ;
     justify-content: space-between;
+    position: fixed;
+    background-color: white;
+    z-index:10000;
+    top: 0;
 
     menu{
         margin: 0;
@@ -18,7 +22,7 @@
     }
 
     .buttons{
-        display: flex;
+        
         .login{
             background-color: #FFD5D5;
             color: #F34E4E;

@@ -3,15 +3,20 @@ import quoteImg from '../../assets/quote.svg'
 import previewImg from '../../assets/overview-preview.svg'
 
 const Overview = ()=>{
+
+    const handleClick = ()=>{
+        window.location.href = '/courses/beginner'
+    }
+
     return <div className={styles.main}>
         <div className={styles.preview}>
             <img src={previewImg} alt='preview' />
         </div>
         <div className={styles.explanation}>
-            <h2>Learn to Speak with Your Hands and Heart.</h2>
+            <h2>Learn to Speak with <br /> Your Hands and Heart.</h2>
             <p>With our interactive hand pose technology, you get real-time feedback while you learn—like having a personal ASL coach by your side!
                 It’s fun, it’s engaging, and it helps you nail every sign as you go!</p>
-            <button>Start Now</button>
+            <button onClick={handleClick}>Start Now</button>
         </div>
         <div className={styles.mission}>
             <h3>Our Mission</h3>

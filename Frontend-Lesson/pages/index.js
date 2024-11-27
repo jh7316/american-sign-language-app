@@ -25,6 +25,7 @@ import { Signimage, Signpass } from "../components/handimage"
 
 import About from "../components/about"
 import Metatags from "../components/metatags"
+import Header from "../components/header"
 
 // import "../styles/App.css"
 
@@ -252,7 +253,10 @@ export default function Home() {
   return (
     <ChakraProvider>
       <Metatags />
+      <Header />
       <Box id="main" bgColor="#5AB6E2">
+
+
         <Box display="flex" id="left-bar" bgColor="#D0D0D0">
           {/* Left Sidebar with Instructions */}
           {/* Dropdown Menu */}
@@ -291,21 +295,17 @@ export default function Home() {
           
 
             {/* Short Description */}
-            <Text mb={2} fontSize="lg">
+            <Text fontSize="lg">
               {signList[currentSign]?.desc ||
                 "Make a fist with your thumb against the side of your index finger."}
             </Text>
 
             {/* Instructional Image */}
-            <Box bgColor="white" borderRadius="md" p={4} color="black" mt={20} mb={5}>
-              <Text fontWeight="bold" mb={2}>
-                The shape resembles the letter {signList[currentSign]?.alt}
-              </Text>
-              <Image
-                src={`/alphabets_img/${signList[0] ? signList[currentSign].alt: 'a'}.png`} // Using provided second image path
-                borderRadius="md"
-              />
-            </Box>
+            <Image
+              src={`/alphabets_img/${signList[0] ? signList[currentSign].alt: 'a'}.png`} // Using provided second image path
+              borderRadius="md"
+              mt={20} mb={5}
+            />
           </Box>
         </Box>
 
@@ -343,7 +343,9 @@ export default function Home() {
           </Stack>
 
           <Stack id="start-button" direction="row" align="center">
-            {/* <Button
+            {/* <Button>
+          <Stack id="start-button" direction="row" align="center">
+            <Button
               leftIcon={
                 camState === "on" ? (
                   <RiCameraFill size={20} />
