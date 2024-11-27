@@ -24,6 +24,7 @@ import { Signimage, Signpass } from "../components/handimage"
 
 import About from "../components/about"
 import Metatags from "../components/metatags"
+import Header from "../components/header"
 
 // import "../styles/App.css"
 
@@ -251,7 +252,10 @@ export default function Home() {
   return (
     <ChakraProvider>
       <Metatags />
+      <Header />
       <Box id="main" bgColor="#5AB6E2">
+
+
         <Box display="flex" id="left-bar" bgColor="#D0D0D0">
           {/* Left Sidebar with Instructions */}
           {/* Dropdown Menu */}
@@ -290,7 +294,7 @@ export default function Home() {
           
 
             {/* Short Description */}
-            <Text mb={2} fontSize="lg">
+            <Text fontSize="lg">
               {signList[currentSign]?.desc ||
                 "Make a fist with your thumb against the side of your index finger."}
             </Text>
