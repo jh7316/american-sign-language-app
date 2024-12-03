@@ -41,13 +41,14 @@ export default function About() {
           {/* Updated modal header */}
           <ModalHeader
             sx={{
-              fontSize: "24px",
+              fontSize: "30px",
               fontWeight: "400",
               lineHeight: "39.31px",
               textAlign: "center",
               textUnderlinePosition: "from-font",
               textDecorationSkipInk: "none",
               color: "var(--Blue, #5AB6E2)", // Updated text color to match requirement
+              marginTop: "10"
             }}
 
             id="modal-header"
@@ -70,7 +71,7 @@ export default function About() {
             </Box>
 
             {/* Video recommendation section */}
-            <Text fontSize="md" fontWeight="bold" mb={2}>
+            <Text fontSize="md" fontWeight="bold" mb={2} mt={10}>
               Try these Hand Yoga Exercises:
             </Text>
 

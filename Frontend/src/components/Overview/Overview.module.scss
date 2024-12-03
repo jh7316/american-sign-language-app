@@ -6,10 +6,11 @@
     min-height: 90vh;
     height: auto;
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 40% 45%;
     grid-template-rows: auto;
-    gap: 10px 6%;   
-    justify-content: space-between;  
+    gap: 0rem 7rem;   
+    justify-content: center;
+    align-items: center;  
     margin: auto;
     margin-top: 5rem;
     padding: 0rem 7rem;
@@ -25,7 +26,7 @@
     .preview{
         display: flex;
         img{
-            max-width: 100%;   
+            width: 100%;   
             object-fit: cover;
             margin: auto;
         }
@@ -34,8 +35,8 @@
     .explanation{
         display: flex;
         flex-direction: column;
-        margin: auto;
-        max-width: 25rem;
+        margin: auto 0;
+        max-width: 45rem;
         align-items: flex-start; 
 
         h2{
@@ -48,6 +49,7 @@
             color: white;
             font-weight: bolder;
             margin: auto;
+            margin-top: 1rem;
             font-size: 18px;
             padding: 1rem 1.5rem;
             font-family: "Montserrat", sans-serif;
@@ -76,12 +78,13 @@
         margin: auto;
 
         img{
-            height: 12rem;
+            width: 12rem;
+            margin: 0rem 3rem;
         }
 
         p{
             max-width: 18rem;
-            margin: 0rem auto;
+            margin: 0rem;
         }
     }
 
