@@ -101,48 +101,63 @@ export default function About() {
 
           {/* Hand Yoga Video Thumbnails with Scroll Bar */}
           <Box
-              display="flex"
-              overflowX="auto" // Allow horizontal scrolling
-              gap={4}
-              pb={4} // Adding some padding at the bottom for visual separation
-              sx={{
-                '&::-webkit-scrollbar': {
-                  height: '8px', // Set the height of the scrollbar
-                },
-                '&::-webkit-scrollbar-track': {
-                  background: '#f1f1f1', // Track color
-                },
-                '&::-webkit-scrollbar-thumb': {
-                  background: '#888', // Thumb color
-                  borderRadius: '10px', // Make it round
-                },
-                '&::-webkit-scrollbar-thumb:hover': {
-                  background: '#555', // Thumb hover color
-                },
-              }}
-            >
-              {[1, 2, 3].map((_, index) => (
-                <Box
-                  key={index}
-                  borderWidth="1px"
-                  borderRadius="lg"
-                  overflow="hidden"
-                  minW="250px"
-                  bg="white"
-                  boxShadow="md"
+            display="flex"
+            overflowX="auto" // Allow horizontal scrolling
+            gap={4}
+            pb={4} // Adding some padding at the bottom for visual separation
+            sx={{
+              '&::-webkit-scrollbar': {
+                height: '8px', // Set the height of the scrollbar
+              },
+              '&::-webkit-scrollbar-track': {
+                background: '#f1f1f1', // Track color
+              },
+              '&::-webkit-scrollbar-thumb': {
+                background: '#888', // Thumb color
+                borderRadius: '10px', // Make it round
+              },
+              '&::-webkit-scrollbar-thumb:hover': {
+                background: '#555', // Thumb hover color
+              },
+            }}
+          >
+            {[
+              {
+                image: 'needabreak_thumbnail1.png',
+                url: 'https://www.youtube.com/watch?v=LehkTdGXxjc&t=75s&pp=ygUJSEFORCBZT0dB',
+              },
+              {
+                image: 'needabreak_thumbnail2.png',
+                url: 'https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DNxC4LhOrMFw&ved=2ahUKEwjvj8-a9tSJAxWwj4kEHfAdAfAQtwJ6BAgNEAI&usg=AOvVaw307HFhXjw0QCGf_UUbb4pN',
+              },
+              {
+                image: 'needabreak_thumbnail3.png',
+                url: 'https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DKlnNb23c_fw&ved=2ahUKEwiDxq-09tSJAxUahIkEHV8wD0cQtwJ6BAgJEAI&usg=AOvVaw3Y1jXm8y_iMfVPoAd5vMRM',
+              },
+            ].map((item, index) => (
+              <Box
+                key={index}
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                minW="250px"
+                bg="white"
+                boxShadow="md"
+              >
+                <Link
+                  href={item.url} // Use the URL from the item
+                  isExternal
                 >
-                  <Link
-                    href="https://www.youtube.com/watch?v=LehkTdGXxjc&t=75s&pp=ygUJSEFORCBZT0dB"
-                    isExternal
-                  >
-                    <Image
-                      src={'needabreak_thumbnail.png'}
-                      alt="Hand Yoga Thumbnail"
-                    />
-                  </Link>
-                </Box>
-              ))}
-            </Box>
+                  <Image
+                    src={item.image} // Use the image from the item
+                    alt={`Hand Yoga Thumbnail ${index + 1}`}
+                  />
+                </Link>
+              </Box>
+            ))}
+          </Box>
+
+
           </ModalBody>
           
           {/* Close button */}
