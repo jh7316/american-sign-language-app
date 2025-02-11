@@ -26,21 +26,27 @@ UI/UX Enhancements: Animated feedback, real-time progress tracking
 To run HandTalk locally, follow these steps:
 
 1️⃣ Clone the repository:
+ ```
 sh
 Copy
 Edit
 git clone https://github.com/yourusername/handtalk-asl.git
 cd handtalk-asl
+ ```
 2️⃣ Install dependencies:
+ ```
 sh
 Copy
 Edit
 npm install
+ ```
 3️⃣ Start the development server:
+ ```
 sh
 Copy
 Edit
 npm start
+ ```
 The app will open at http://localhost:3000.
 
 ## 📸 Screenshots
