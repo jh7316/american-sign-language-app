@@ -4,7 +4,7 @@
 ## 📌 Overview
 HandTalk is a real-time American Sign Language (ASL) recognition application that helps users learn and practice ASL by detecting and classifying hand gestures through their webcam. It leverages computer vision and deep learning to provide instant feedback and track user progress interactively.
 
-The project utilizes TensorFlow.js, HandPose, and Fingerpose for hand detection and classification. The frontend is built using React.js and Chakra UI, offering a seamless user experience with a structured progress-based learning system.
+The project utilizes TensorFlow.js, HandPose, and Fingerpose for hand detection and classification. The frontend is built using React.js and Typescript, offering a seamless user experience with a structured progress-based learning system.
 
 ## 🚀 Features
 ✅ Real-time ASL Alphabet Detection – Uses a deep learning pipeline to classify ASL hand gestures dynamically.  
@@ -18,7 +18,7 @@ Frontend: React.js, TypeScript
 Machine Learning: TensorFlow.js, HandPose, Fingerpose
 Computer Vision: Hand landmark detection, feature extraction, gesture classification
 State Management: React Hooks (useState, useEffect)
-UI/UX Enhancements: Figma
+UI/UX Development: Figma
 🛠 Setup & Installation
 To run HandTalk locally, follow these steps:
 
