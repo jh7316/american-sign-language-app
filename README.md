@@ -35,10 +35,10 @@ npm install
  ```
 npm start
  ```
-The app will open at http://localhost:3000.
+
 
 ## 📸 Screenshots
-(Include images/GIFs of the app in action.)
+
 
 ## 📖 How It Works
 Enable Webcam – The app accesses the webcam to detect hand gestures.
