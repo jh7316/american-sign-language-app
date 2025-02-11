@@ -1,7 +1,4 @@
-# american-sign-language-app
-Website for teaching american sign language using hand pose detection.
-
-## 🖐 HandTalk - Real-Time ASL Recognition
+## 🖐 HandTalk - Real-Time American-sign-language-app 
 (Replace with an actual image or GIF of your app in action.)
 
 ## 📌 Overview
@@ -27,24 +24,15 @@ To run HandTalk locally, follow these steps:
 
 1️⃣ Clone the repository:
  ```
-sh
-Copy
-Edit
 git clone https://github.com/yourusername/handtalk-asl.git
 cd handtalk-asl
  ```
 2️⃣ Install dependencies:
  ```
-sh
-Copy
-Edit
 npm install
  ```
 3️⃣ Start the development server:
  ```
-sh
-Copy
-Edit
 npm start
  ```
 The app will open at http://localhost:3000.
